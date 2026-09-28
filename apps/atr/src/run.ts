@@ -3,4 +3,7 @@ import { readJSONFile } from "./readJSONfile";
 
 export const run = async (): Promise<void> => {
   const reads = readJSONFile();
+
+  for (const iterator of object) {
+  }
 };
