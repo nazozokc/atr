@@ -1,10 +1,16 @@
 {
-  "name": "atr",
+  "name": "schrun",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "license": "MIT",
+  "url": "https://github.com/nazozokc/schrun",
+  "author": {
+    "name": "nazozokc",
+    "url": "https://github.com/nazozokc"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsdown": "latest"
   },
   "peerDependencies": {
     "typescript": "^7"
