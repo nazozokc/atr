@@ -1,1 +1,1 @@
-apps/atr/CONTRIBUTING.md
+./apps/schrun/CONTRIBUTING.md

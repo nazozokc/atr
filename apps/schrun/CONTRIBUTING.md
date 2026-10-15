@@ -1,6 +1,6 @@
-# Contributing to atr
+# Contributing to schrun
 
-Thanks for your interest in contributing to `atr`! Contributions such as bug reports, documentation improvements, and focused code changes are welcome.
+Thanks for your interest in contributing to `schrun`! Contributions such as bug reports, documentation improvements, and focused code changes are welcome.
 
 ## Getting started
 
@@ -19,15 +19,15 @@ Thanks for your interest in contributing to `atr`! Contributions such as bug rep
 3. Update the documentation when behavior or usage changes.
 4. Run the relevant checks before opening a pull request.
 
-The CLI entry point is `apps/atr/src/index.ts`. You can run it from the repository root with:
+The CLI entry point is `apps/schrun/src/index.ts`. You can run it from the repository root with:
 
 ```bash
-bun run apps/atr/src/index.ts --help
+bun run apps/schrun/src/index.ts --help
 ```
 
 ## Testing
 
-There is currently no test script configured for this app. For changes that affect CLI behavior, manually verify the relevant command using a temporary task file under `~/.config/atr/`. Avoid committing personal configuration or credentials.
+There is currently no test script configured for this app. For changes that affect CLI behavior, manually verify the relevant command using a temporary task file under `~/.config/schrun/`. Avoid committing personal configuration or credentials.
 
 ## Pull requests
 

@@ -1,1 +1,1 @@
-./apps/atr/README.md
+./apps/schrun/README.md

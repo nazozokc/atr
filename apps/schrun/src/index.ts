@@ -5,9 +5,10 @@ import { version } from "./version.ts";
 import { runbackground } from "./run/background.ts";
 import { runsurface } from "./run/surface.ts";
 import { consola } from "consola";
+import { CLI_COMMAND_NAME } from "./constant/app.ts";
 
 const mainCommand = define({
-  name: "atr",
+  name: CLI_COMMAND_NAME,
   description: "agent and other task runner",
   version: await version(),
 
