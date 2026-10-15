@@ -4,6 +4,7 @@ import { cli, define } from "gunshi";
 import { version } from "./version.ts";
 import { runbackground } from "./run/background.ts";
 import { runsurface } from "./run/surface.ts";
+import { consola } from "consola";
 
 const mainCommand = define({
   name: "atr",
@@ -13,7 +14,7 @@ const mainCommand = define({
   args: {
     defaultInput: {
       type: "positional",
-      required: true,
+      required: false,
       description: "Input value",
     },
 
@@ -38,6 +39,9 @@ const mainCommand = define({
       await runsurface(defaultInput);
       return;
     }
+
+    consola.error("No Input String");
+    return;
   },
 });
 
