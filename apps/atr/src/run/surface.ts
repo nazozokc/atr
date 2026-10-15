@@ -22,6 +22,6 @@ export const runsurface = async (FileName: string): Promise<void> => {
   });
 
   spawncli.on("close", (code) => {
-    consola.error(`done code: ${code}`);
+    consola.success(`done code: ${code}`);
   });
 };
