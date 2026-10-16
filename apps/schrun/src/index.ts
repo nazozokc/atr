@@ -6,6 +6,7 @@ import { runbackground } from "./run/background.ts";
 import { runsurface } from "./run/surface.ts";
 import { consola } from "consola";
 import { CLI_COMMAND_NAME } from "./constant/app.ts";
+import { runCommand } from "./commands/run/index.ts";
 
 const mainCommand = define({
   name: CLI_COMMAND_NAME,
@@ -46,4 +47,9 @@ const mainCommand = define({
   },
 });
 
-await cli(process.argv.slice(2), mainCommand, {});
+await cli(process.argv.slice(2), mainCommand, {
+  name: CLI_COMMAND_NAME,
+  subCommands: {
+    sch: runCommand,
+  },
+});
