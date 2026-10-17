@@ -13,8 +13,8 @@ export const mainCommand = async (): Promise<void> => {
     version: await version(),
 
     args: {
-      defaultInput: {
-        type: "positional",
+      surface: {
+        type: "string",
         required: false,
         description: "Input value",
       },
@@ -27,7 +27,7 @@ export const mainCommand = async (): Promise<void> => {
     },
 
     run: async (ctx) => {
-      const { defaultInput, background } = ctx.values;
+      const { surface, background } = ctx.values;
 
       if (background !== undefined) {
         console.log("Background mode:", background);
@@ -35,9 +35,9 @@ export const mainCommand = async (): Promise<void> => {
         return;
       }
 
-      if (defaultInput !== undefined) {
-        console.log("Normal mode:", defaultInput);
-        await runsurface(defaultInput);
+      if (surface !== undefined) {
+        console.log("Normal mode:", surface);
+        await runsurface(surface);
         return;
       }
 
