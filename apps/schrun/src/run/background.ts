@@ -1,9 +1,9 @@
 import { consola } from "consola";
-import { readFiles } from "../read.ts";
+import { readJSON } from "../readJSON.ts";
 import { spawn } from "node:child_process";
 
 export const runbackground = async (FileName: string): Promise<void> => {
-  const reads = await readFiles(FileName);
+  const reads = await readJSON(FileName);
   const commandsplit = reads.run.split(/\s+/);
 
   const [command, ...args] = commandsplit;
