@@ -1,12 +1,12 @@
 import { fork } from "node:child_process";
 import { writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import { PID_FILE } from "../constant/app.ts";
+import { fileURLToPath } from "node:url";
 
 export const startschedule = async (): Promise<void> => {
-  const daemonPath = join(process.execPath, "daemon.mjs");
+  const daemonPath = fileURLToPath(new URL("../daemon.mjs", import.meta.url));
 
-  const child = fork(daemonPath, [], {
+  const child = fork(process.execPath, [daemonPath], {
     detached: true,
     stdio: "ignore",
   });
