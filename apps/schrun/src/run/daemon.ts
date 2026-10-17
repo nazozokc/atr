@@ -21,15 +21,12 @@ export const startschedule = async (): Promise<void> => {
 
     cron.schedule(read.cron, () => {
       const cronspawn = spawn(command!, args!, {
-        stdio: "ignore",
-        detached: true,
+        stdio: "inherit",
       });
 
       cronspawn.on("error", (error) => {
         consola.error(`コマンドの起動に失敗: ${command}`, error);
       });
-
-      cronspawn.unref();
     });
   }
 };
