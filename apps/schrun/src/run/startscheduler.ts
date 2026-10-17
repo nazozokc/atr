@@ -10,8 +10,8 @@ export const startschedule = async (): Promise<void> => {
 
   for (const filename of readConfig) {
     if (!filename.endsWith(".json")) continue;
-
-    const read = await readJSON(filename);
+    const [filenamesplit] = filename.split(".");
+    const read = await readJSON(filenamesplit!);
 
     if (!read.enabled) continue;
 

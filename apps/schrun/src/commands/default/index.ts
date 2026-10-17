@@ -30,14 +30,16 @@ export const mainCommand = async (): Promise<void> => {
       const { defaultInput, background } = ctx.values;
 
       if (background !== undefined) {
+        const [splitbg] = background.split(".");
         console.log("Background mode:", background);
-        await runbackground(background);
+        await runbackground(splitbg!);
         return;
       }
 
       if (defaultInput !== undefined) {
+        const [splitdf] = defaultInput.split(".");
         console.log("Normal mode:", defaultInput);
-        await runsurface(defaultInput);
+        await runsurface(splitdf!);
         return;
       }
 
