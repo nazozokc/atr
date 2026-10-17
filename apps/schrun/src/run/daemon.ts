@@ -30,3 +30,8 @@ export const startschedule = async (): Promise<void> => {
     });
   }
 };
+
+startschedule().catch((error) => {
+  consola.error("failed to up scheduler", error);
+  process.exitCode = 1;
+});
