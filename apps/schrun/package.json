@@ -12,6 +12,11 @@
     "name": "nazozokc",
     "url": "https://github.com/nazozokc"
   },
+  "file": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/bun": "latest",
     "tsdown": "latest"
