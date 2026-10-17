@@ -1,55 +1,5 @@
 #!/usr/bin/env node
 
-import { cli, define } from "gunshi";
-import { version } from "./version.ts";
-import { runbackground } from "./run/background.ts";
-import { runsurface } from "./run/surface.ts";
-import { consola } from "consola";
-import { CLI_COMMAND_NAME } from "./constant/app.ts";
-import { runCommand } from "./commands/run/index.ts";
+import { mainCommand } from "./commands/default";
 
-const mainCommand = define({
-  name: CLI_COMMAND_NAME,
-  description: "agent and other task runner",
-  version: await version(),
-
-  args: {
-    defaultInput: {
-      type: "positional",
-      required: false,
-      description: "Input value",
-    },
-
-    background: {
-      type: "string",
-      required: false,
-      description: "Run a task in the background",
-    },
-  },
-
-  run: async (ctx) => {
-    const { defaultInput, background } = ctx.values;
-
-    if (background !== undefined) {
-      console.log("Background mode:", background);
-      await runbackground(background);
-      return;
-    }
-
-    if (defaultInput !== undefined) {
-      console.log("Normal mode:", defaultInput);
-      await runsurface(defaultInput);
-      return;
-    }
-
-    consola.error("No Input String");
-    return;
-  },
-});
-
-await cli(process.argv.slice(2), mainCommand, {
-  name: CLI_COMMAND_NAME,
-  subCommands: {
-    sch: runCommand,
-  },
-});
+await mainCommand();

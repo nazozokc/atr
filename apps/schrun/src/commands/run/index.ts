@@ -1,4 +1,6 @@
 import type { Command } from "gunshi";
+import { startschedule } from "../../run/startscheduler.ts";
+import { stopschedule } from "../../run/stopscheduler.ts";
 
 export const runCommand: Command = {
   name: "run",
@@ -15,13 +17,15 @@ export const runCommand: Command = {
     },
   },
 
-  run: (ctx) => {
+  run: async (ctx) => {
     const [start, stop] = String(ctx.values);
 
     if (start !== undefined) {
+      await startschedule();
     }
 
     if (stop !== undefined) {
+      await stopschedule();
     }
   },
 };
