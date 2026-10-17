@@ -1,8 +1,10 @@
 import { spawn } from "node:child_process";
 
-const child = spawn(process.execPath, ["./dist/index.mjs", "scheduler"], {
-  detached: true,
-  stdio: "ignore",
-});
+export const startschedule = (): void => {
+  const child = spawn(process.execPath, ["./dist/daemon.mjs", "scheduler"], {
+    detached: true,
+    stdio: "ignore",
+  });
 
-child.unref();
+  child.unref();
+};

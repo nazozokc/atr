@@ -21,7 +21,7 @@ export const runCommand: Command = {
     const { start, stop } = ctx.values;
 
     if (start === true) {
-      await startschedule();
+      startschedule();
     }
 
     if (stop === true) {
