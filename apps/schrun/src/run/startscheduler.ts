@@ -3,7 +3,7 @@ import { writeFile } from "node:fs/promises";
 import { PID_FILE } from "../constant/app";
 
 export const startschedule = (): void => {
-  const child = spawn(process.execPath, ["./dist/daemon.mjs"], {
+  const child = spawn(process.execPath, ["node", "./dist/daemon.mjs"], {
     detached: true,
     stdio: "ignore",
   });
