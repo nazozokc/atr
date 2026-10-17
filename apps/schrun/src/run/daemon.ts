@@ -10,6 +10,7 @@ export const startschedule = async (): Promise<void> => {
 
   for (const filename of readConfig) {
     if (!filename.endsWith(".json")) continue;
+    if (!filename.match("foo.json")) continue;
     const [filenamesplit] = filename.split(".");
     const read = await readJSON(filenamesplit!);
 
@@ -21,6 +22,7 @@ export const startschedule = async (): Promise<void> => {
 
     cron.schedule(read.cron, () => {
       const cronspawn = spawn(command!, args!, {
+        detached: true,
         stdio: "inherit",
       });
 
