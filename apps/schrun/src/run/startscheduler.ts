@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 export const startschedule = async (): Promise<void> => {
   const daemonPath = fileURLToPath(
-    new URL("./dist/daemon.mjs", import.meta.url),
+    new URL("../../daemon.mjs", import.meta.url),
   );
 
   const child = fork(process.execPath, [daemonPath], {
