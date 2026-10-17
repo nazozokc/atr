@@ -4,7 +4,9 @@ import { PID_FILE } from "../constant/app.ts";
 import { fileURLToPath } from "node:url";
 
 export const startschedule = async (): Promise<void> => {
-  const daemonPath = fileURLToPath(new URL("../daemon.mjs", import.meta.url));
+  const daemonPath = fileURLToPath(
+    new URL("./dist/daemon.mjs", import.meta.url),
+  );
 
   const child = fork(process.execPath, [daemonPath], {
     detached: true,
