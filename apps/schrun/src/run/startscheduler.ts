@@ -1,4 +1,6 @@
 import { spawn } from "node:child_process";
+import { writeFile } from "node:fs/promises";
+import { PID_FILE } from "../constant/app";
 
 export const startschedule = (): void => {
   const child = spawn(process.execPath, ["./dist/daemon.mjs", "scheduler"], {
@@ -8,3 +10,5 @@ export const startschedule = (): void => {
 
   child.unref();
 };
+
+await writeFile(PID_FILE, String(process.pid));
