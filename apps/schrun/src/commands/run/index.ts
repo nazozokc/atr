@@ -18,13 +18,13 @@ export const runCommand: Command = {
   },
 
   run: async (ctx) => {
-    const [start, stop] = ctx.values;
+    const { start, stop } = ctx.values;
 
-    if (start !== true) {
+    if (start === true) {
       await startschedule();
     }
 
-    if (stop !== true) {
+    if (stop === true) {
       await stopschedule();
     }
   },
