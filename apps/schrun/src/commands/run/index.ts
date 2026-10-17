@@ -6,25 +6,25 @@ export const runCommand: Command = {
   name: "run",
   args: {
     start: {
-      type: "string",
+      type: "boolean",
       required: false,
       description: "Start scheduler",
     },
     stop: {
-      type: "string",
+      type: "boolean",
       required: false,
       description: "Stop scheduler",
     },
   },
 
   run: async (ctx) => {
-    const [start, stop] = String(ctx.values);
+    const [start, stop] = ctx.values;
 
-    if (start !== undefined) {
+    if (start !== true) {
       await startschedule();
     }
 
-    if (stop !== undefined) {
+    if (stop !== true) {
       await stopschedule();
     }
   },

@@ -49,7 +49,7 @@ export const mainCommand = async (): Promise<void> => {
   await cli(process.argv.slice(2), RunmainCommand, {
     name: CLI_COMMAND_NAME,
     subCommands: {
-      sch: runCommand,
+      run: runCommand,
     },
   });
 };
