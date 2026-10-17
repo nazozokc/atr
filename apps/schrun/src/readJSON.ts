@@ -5,7 +5,7 @@ import { fileSchema, type FileType } from "./type";
 import { consola } from "consola";
 
 export const readJSON = async (FileName: string): Promise<FileType> => {
-  const file = join(CONFIG_DIR, `${FileName}.json`);
+  const file = join(CONFIG_DIR, `${FileName}`);
   const reads = await readFile(file, "utf-8");
 
   const safeParseSchema = fileSchema.safeParse(JSON.parse(reads));
