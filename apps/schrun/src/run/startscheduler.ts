@@ -8,6 +8,6 @@ export const startschedule = async (): Promise<void> => {
     stdio: "ignore",
   });
 
-  await writeFile(PID_FILE, String(process.pid));
+  await writeFile(PID_FILE, String(child.pid));
   child.unref();
 };
