@@ -6,7 +6,7 @@ import { PID_FILE } from "../constant/app.ts";
 export const startschedule = async (): Promise<void> => {
   const daemonPath = fileURLToPath(new URL("../daemon.mjs", import.meta.url));
 
-  const child = spawn(process.execPath, [daemonPath], {
+  const child = spawn(process.execPath, ["node", daemonPath], {
     detached: true,
     stdio: "ignore",
   });
@@ -16,5 +16,6 @@ export const startschedule = async (): Promise<void> => {
   }
 
   await writeFile(PID_FILE, String(child.pid));
+
   child.unref();
 };
