@@ -25,5 +25,5 @@ export const stopschedule = async (): Promise<void> => {
     return;
   }
 
-  await unlink(PID_FILE);
+  await unlink(PID_FILE).catch(() => {});
 };
